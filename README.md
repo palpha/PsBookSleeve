@@ -17,8 +17,8 @@ In its most simple form, it's very easy:
 
     Import-Module PsBookSleeve
     Get-RedisConnection
-    Invoke-RedisCommand Strings Set mykey, myvalue
+    Invoke-RedisCommand Strings Set mykey, myvalue | Out-Null
     $str = Invoke-RedisCommand Strings GetString 'mykey'
-    Invoke-RedisCommand Keys Find *
+    Invoke-RedisCommand Keys Find * | % { "Here's a key: $_" }
 
 For more information, see Test.ps1.
